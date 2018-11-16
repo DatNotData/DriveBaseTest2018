@@ -30,8 +30,8 @@ class Robot : public frc::IterativeRobot {
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
 
-  ctre::TalonSRX motorLeft{0};
-  ctre::TalonSRX motorRight{1};
+  ctre::TalonSRX motorLeft{4};
+  ctre::TalonSRX motorRight{5};
 
   frc::Joystick joystick{1};
 };
