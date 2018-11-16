@@ -15,6 +15,14 @@ void Robot::RobotInit() {
   m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
   m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
   frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+
+  robotDrive(motorLM, motorRM);
+
+  motorLF.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, motorLM);
+  motorLR.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, motorLM);
+
+  motorRF.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, motorRM);
+  motorRR.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, motorRM);
 }
 
 /**
@@ -62,9 +70,7 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  double value = joystick.GetRawAxis(1);
-  motorLeft.Set(value);
-  motorRight.Set(value);
+  robotDrive.ArcadeDrive(joystick, 1, joystick, 4);
 }
 
 void Robot::TestPeriodic() {}
