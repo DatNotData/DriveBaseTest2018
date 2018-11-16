@@ -12,6 +12,7 @@
 #include <IterativeRobot.h>
 #include <SmartDashboard/SendableChooser.h>
 #include <WPILib.h>
+#include <Phoenix.h>
 
 class Robot : public frc::IterativeRobot {
  public:
@@ -29,8 +30,8 @@ class Robot : public frc::IterativeRobot {
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
 
-  frc::VictorSP motorLeft{0};
-  frc::VictorSP motorRight{1};
+  ctre::TalonSRX motorLeft{0};
+  ctre::TalonSRX motorRight{1};
 
   frc::Joystick joystick{1};
 };

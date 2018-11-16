@@ -62,7 +62,7 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  double value = joystick.GetAxis(1);
+  double value = joystick.GetRawAxis(1);
   motorLeft.Set(value);
   motorRight.Set(value);
 }
